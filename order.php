@@ -173,7 +173,7 @@
         <th>price</th>
         </tr><?php    
     
-     $connection=mysqli_connect("localhost","id10067721_theculinarydestination","adityabarve2802","id10067721_theculinarydestination");
+     include 'config1.php';
       $querry1 = "SELECT * FROM menu";
         $querry2 = mysqli_query($connection,$querry1);
         $i = 0;
@@ -233,10 +233,13 @@
            $name=	$_POST['name'];
            /*$quantityy=$_POST['quantity'];*/
 $phn= $_POST['phn'];
-$address= $_POST['address'];     
-          $checkbox1=$_POST['order'];  
+$address= $_POST['address'];  
+$checkbox1 = isset($_POST['order']) ? $_POST['order'] : '';
+          //=$_POST['order']; 
+
 $chk="";  
-foreach($checkbox1 as $chk1)  
+$chk1;
+foreach((array)$checkbox1 as $chk1)  
    {  
       $chk .= $chk1.",";  
    } 
