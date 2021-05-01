@@ -173,9 +173,9 @@
         <th>price</th>
         </tr><?php    
     
-     include 'config1.php';
+    include 'config.php';
       $querry1 = "SELECT * FROM menu";
-        $querry2 = mysqli_query($connection,$querry1);
+        $querry2 = mysqli_query($link,$querry1);
         $i = 0;
         while($querry3 = mysqli_fetch_assoc($querry2)){
             $i++;
@@ -218,18 +218,19 @@
     
           <?php
         }
- //$connection=mysqli_connect("localhost","root","","mycreation");
+ //$link=mysqli_connect("localhost","root","","mycreation");
    // echo "<h1>$title</h1><br><h2>$sbtitle</h2>"; 
     ?></table>
           
        <input type="text" class="name form-control" name="name" placeholder="Enter Name" required>   
        <input type="text" class="phn form-control" name="phn" placeholder="Enter Phone No" required>
        <textarea name="address" placeholder="Enter Adderss" class="add form-control" cols="10" required></textarea>
-       <a href='https://api.whatsapp.com/send?phone=919137818209&text=$title $sbtitle $content $contentt $orderno'><button type="submit" class="btn btn-primary" name="go">Order</button></a> 
+       <!--<a href='https://api.whatsapp.com/send?phone=919137818209&text=$title $sbtitle $content $contentt $orderno'>--><button type="submit" class="btn btn-primary" name="go">Order</button></a> 
           </div>
     </div>
         <?php  
             if(isset($_POST['go'])){
+                if(isset($_POST['order'])&& $_POST['order']>1){
            $name=	$_POST['name'];
            /*$quantityy=$_POST['quantity'];*/
 $phn= $_POST['phn'];
@@ -241,14 +242,9 @@ foreach($checkbox1 as $chk1)
       $chk .= $chk1.",";  
    } 
 
-/*   $chkk="";  
-foreach($quantityy as $qu1)  
-   {  
-      $chkk .= $qu1.",";  
-   } */
          $order_no = $name.uniqid('_');
          
-$in_ch=mysqli_query($connection,"insert into orders (ORDERNO,NAME,PHONE,ADDRESS,ORDERS) VALUES ('$order_no','$name','$phn','$address','$chk')" );  
+$in_ch=mysqli_query($link,"insert into orders (ORDERNO,NAME,PHONE,ADDRESS,ORDERS) VALUES ('$order_no','$name','$phn','$address','$chk')" );  
 
 
 
@@ -264,7 +260,12 @@ if($in_ch==1)
 else  
    {  
       echo'<script>alert("Failed To Order")</script>';  
-   }  
+   } 
+                    
+                }
+   else{
+       echo'<script>alert("Select what to order")</script>';
+   }
 }   
     
             
@@ -296,7 +297,7 @@ else
            $srch=$_POST['search'];
                  
                   $querry11 = "SELECT * FROM orders WHERE ORDERNO = '$srch' OR NAME = '$srch'";
-        $querry22 = mysqli_query($connection,$querry11);
+        $querry22 = mysqli_query($link,$querry11);
         $i = 0;
         while($querry33 = mysqli_fetch_assoc($querry22)){
             $i++;
@@ -343,7 +344,7 @@ else
     
           <?php
         }}
- //$connection=mysqli_connect("localhost","root","","mycreation");
+ //$link=mysqli_connect("localhost","root","","mycreation");
    // echo "<h1>$title</h1><br><h2>$sbtitle</h2>"; 
     ?></table>
             
