@@ -233,13 +233,10 @@
            $name=	$_POST['name'];
            /*$quantityy=$_POST['quantity'];*/
 $phn= $_POST['phn'];
-$address= $_POST['address'];  
-$checkbox1 = isset($_POST['order']) ? $_POST['order'] : '';
-          //=$_POST['order']; 
-
+$address= $_POST['address'];     
+          $checkbox1=$_POST['order'];  
 $chk="";  
-$chk1;
-foreach((array)$checkbox1 as $chk1)  
+foreach($checkbox1 as $chk1)  
    {  
       $chk .= $chk1.",";  
    } 
