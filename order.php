@@ -1,3 +1,7 @@
+<?php
+// Starting session
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     
@@ -120,17 +124,17 @@
 </div>
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="index.php">Home</a>
+      <a class="nav-link" href="index.html">Home</a>
     </li>
     <li class="nav-item">
-<a class="nav-link" href="index.php#menu">Menu</a>
+<a class="nav-link" href="index.html#menu">Menu</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="index.php#special">Today's Special</a>
+      <a class="nav-link" href="index.html#special">Today's Special</a>
     </li>
       
     <li class="nav-item ">
-      <a class="nav-link" href="index.php#feedback">Feedback</a>
+      <a class="nav-link" href="index.html#feedback">Feedback</a>
        <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
         More
@@ -169,6 +173,7 @@
       <tr>
           <th>Select</th>
         <th>dish</th>
+        <th>quantity</th>
         <th>name</th>
         <th>price</th>
         </tr><?php    
@@ -184,7 +189,6 @@
             $title = $querry3['IMAGEPATH'];
             $sbtitle = $querry3['NAME'];
             $content = $querry3['COST'];
-            /*$quantity[] = $querry3['QUANTITY'];*/
 ?>   
     
         
@@ -202,6 +206,17 @@
 
 
             <td> <img src= '".$querry3['IMAGEPATH']."' height = '100px' width = '100px' /> </td>
+            
+            <td>
+        
+        <select id='menu' name='quantity[]'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+       
+      </select>
+    </td>
             
             <td><h5>".$querry3['NAME']."</h5></td>
             <td><h5>".$querry3['COST']." rs</h5></td>
@@ -224,6 +239,7 @@
           
        <input type="text" class="name form-control" name="name" placeholder="Enter Name" required>   
        <input type="text" class="phn form-control" name="phn" placeholder="Enter Phone No" required>
+       <input type="text" class="phn form-control" name="pin" placeholder="Enter Pin Code" required>
        <textarea name="address" placeholder="Enter Adderss" class="add form-control" cols="10" required></textarea>
        <!--<a href='https://api.whatsapp.com/send?phone=919137818209&text=$title $sbtitle $content $contentt $orderno'>--><button type="submit" class="btn btn-primary" name="go">Order</button></a> 
           </div>
@@ -231,11 +247,23 @@
         <?php  
             if(isset($_POST['go'])){
                 if(isset($_POST['order'])&& $_POST['order']>1){
+                    if(isset($_POST['pin'])&& $_POST['pin']==421605){
            $name=	$_POST['name'];
-           /*$quantityy=$_POST['quantity'];*/
+           $pin=$_POST['pin'];
 $phn= $_POST['phn'];
 $address= $_POST['address'];     
-          $checkbox1=$_POST['order'];  
+          $checkbox1=$_POST['order'];
+          
+
+
+/*$chkk="";
+foreach($quantity as $chkk1){
+    $chkk .= $chkk1.",";
+    
+}
+$_SESSION["quantity"] = $quantity;
+echo $_SESSION["quantity"];
+*/
 $chk="";  
 foreach($checkbox1 as $chk1)  
    {  
@@ -244,14 +272,14 @@ foreach($checkbox1 as $chk1)
 
          $order_no = $name.uniqid('_');
          
-$in_ch=mysqli_query($link,"insert into orders (ORDERNO,NAME,PHONE,ADDRESS,ORDERS) VALUES ('$order_no','$name','$phn','$address','$chk')" );  
+$in_ch=mysqli_query($link,"insert into orders (ORDERNO,NAME,PHONE,PINCODE,ADDRESS,ORDERS) VALUES ('$order_no','$name','$phn','$pin','$address','$chk')" );  
 
-
+//echo $in_ch;
 
 
 if($in_ch==1)  
    {  
-      echo'<script>alert("Ordered Successfully")</script>';
+      echo'<script>alert("Ordered Successfully \nYou Can Expect Your Order In Next 30 mins")</script>';
       //echo $order_no; ?> 
       
       <input type="text" class="form-control" name="orderno" value="<?php echo 'Your Order No: '. $order_no;?>" required>
@@ -262,6 +290,11 @@ else
       echo'<script>alert("Failed To Order")</script>';  
    } 
                     
+                }
+   else{
+       echo'<script>alert("We dont deliver at this location. For now we onlly deliver at 421605")</script>';
+       
+   }
                 }
    else{
        echo'<script>alert("Select what to order")</script>';
@@ -294,8 +327,8 @@ else
         </tr> 
                  <?php
              if(isset($_POST['goo'])){
-           $srch=$_POST['search'];
-                 
+    
+                 $srch=$_POST['search'];
                   $querry11 = "SELECT * FROM orders WHERE ORDERNO = '$srch' OR NAME = '$srch'";
         $querry22 = mysqli_query($link,$querry11);
         $i = 0;
@@ -334,18 +367,12 @@ else
             
             </tr>
              ";
-        ?>
-        
-      
-      
-  
-  
-
-    
-          <?php
-        }}
- //$link=mysqli_connect("localhost","root","","mycreation");
-   // echo "<h1>$title</h1><br><h2>$sbtitle</h2>"; 
+       
+        }/*}
+                 else{
+                     echo '<script>alert("Enter Correct Order No")</script>';
+                 }*/
+             }
     ?></table>
             
             
