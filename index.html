@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta  name="viewport" content="width= device-width, initial-scale=1.0">
+	<title>The Culinary Destination</title>
+	 <link rel = "icon" href = 
+"http://theculinarydestination.000webhostapp.com/img/Untitled-1 copy.jpg" 
+        type = "image/x-icon">
+	<!-- LINKING EXTERNAL CSS STYLESHEET -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- LINKING FONT AWESOME -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- LINKING GOOGLE FONTS -->
+	<!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet"> -->
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200&family=Yusei+Magic&family=Hachi+Maru+Pop&family=Dancing+Script&display=swap" rel="stylesheet">
+	<!-- LINKING BOOTSTRAP -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- FEEDBACK  -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+	<link rel='stylesheet' href='https://raw.githubusercontent.com/kartik-v/bootstrap-star-rating/master/css/star-rating.min.css'>
+
+    <!--THEME SWITCHER-->
+    <link rel="stylesheet" id="switcher-id" href="">
+</head>
+<body>
+	<!-- NAV BAR -->
+<nav class="nav">
+	
+	<a href="#home" class="navtxt"><span class="icons fa fa-home"></span>Home</a>
+	<a href="#menu" class="navtxt"><span class="icons fa fa-cutlery"></span>Menu</a>
+	<a href="#feedback" class="navtxt"><span class="icons fa fa-star"></span>Feedback</a>
+    <a class="navtxt " href="order.php"><i class="icons fa fa-shopping-cart" aria-hidden="true"></i>Order Now</a>
+    <a class="navtxt " href="php/cfsub.php"><i class="icons fa fa-comments-o" aria-hidden="true"></i>Customer's Review's</a>
+
+</nav>
+ <!--THEME SWITCHER-->
+     <div class="theme-switches">
+
+            <div data-theme="light" class="switch btn-group" id="switch-1"></div>
+
+            <div data-theme="sky" class="switch btn-group" id="switch-2"></div>
+
+            <div data-theme="purple" class="switch btn-group" id="switch-3"></div>
+
+            <div data-theme="dark" class="switch btn-group" id="switch-4"></div>
+
+        </div>
+<!-- SLIDER -->
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner" id="home">
+      <div class="carousel-item active">
+      <img src="img/Untitled-1 copy.jpg" alt="Culinary destination logo" width="10vw" height="50vw">
+    </div>
+    <div class="carousel-item">
+      <img src="img/lobster.jpg" alt="Lobster-sea-food-inn" width="10vw" height="50vw">
+    </div>
+    <div class="carousel-item">
+      <img src="img/fishfillet.jpg" alt="fishfillet-sea-food-inn" width="10vw" height="50vw">
+    </div>
+    <div class="carousel-item">
+      <img src="img/prawnsfry.jpg" alt="prawns-fry-sea-food-inn" width="10vw" height="50vw">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+<!-- MENU CARDS -->
+ <div class="container-fluid">
+    <div class="row">
+      <div class="menuitem col-md-4">
+        <div class="menu" id="menu">
+<div class="container">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="img/prawnsfry.jpg" alt="prawns-fry-sea-food-inn" style="width:90%">
+    <div class="card-body">
+      <p class="card-title cardtxt">Starters</p>
+      <p class="cardtxt1">Start your Lunch/Dinner with Best Starters.... </p>
+      <a href="starters.php" class="btn btn-primary stretched-link">See Starters</a>
+    </div>
+  </div>
+  </div>
+</div>
+        <br>
+        </div>
+      <div class="menuitem col-md-4">
+        <div class="menu" id="menu">
+<div class="container">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="img/prawnbiryani.jpg" alt="prawns-biryani-sea-food-inn" style="width:90%">
+    <div class="card-body">
+      <p class="card-title cardtxt">Main Course</p>
+      <p class="cardtxt1">Grab The Best Main Course Sea Food In Town... </p>
+      <a href="maincourse.php" class="btn btn-primary stretched-link">See Main Course</a>
+    </div>
+  </div>
+  </div>
+</div>.
+      </div>
+       <div class="menuitem col-md-4">
+        <div class="menu" id="menu">
+<div class="container">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="img/dessert.jpg" alt="Dessert-sea-food-inn" style="width:90%">
+    <div class="card-body">
+      <p class="card-title cardtxt">Dessert</p>
+      <p class="cardtxt1">Grab The Best Dessert In Town.... </p>
+      <a href="dessert.php" class="btn btn-primary stretched-link">See Dessert</a>
+    </div>
+  </div>
+  </div>
+</div>
+      </div>
+      
+      <div class="menuitem col-md-4">
+        <div class="menu" id="menu">
+<div class="container">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="img/paratha.jpg" alt="Dessert-sea-food-inn" style="width:90%">
+    <div class="card-body">
+      <p class="card-title cardtxt">Snacks</p>
+      <p class="cardtxt1">Grab The Best Snacks In Town.... </p>
+      <a href="snack.php" class="btn btn-primary stretched-link">See Snacks</a>
+    </div>
+  </div>
+  </div>
+</div>
+      </div>
+      
+    </div>
+  </div>
+
+<!-- FEEDBACK -->
+
+<div class="feedback container-fluid" id="feedback" style="padding-top:70px;padding-bottom:70px; background-image: linear-gradient(198deg, #336699, #e6ccff);">
+    <div class="container">
+  <h2 style="font-family: 'Great Vibes', cursive; overflow-y:hidden;">give your feedback</h2>
+ 
+  <form method="POST" action="php/feedback.php">
+    <div class="form-group">
+      <!--<label for="usr">Name:</label>-->
+      <input type="text" class="form-control" name="name" placeholder="Enter Name" style="font-family: 'Berkshire Swash', cursive;">
+    </div>
+    <div class="form-group">
+      <!--<label for="pwd">Password:</label>-->
+      <input type="email" class="form-control" name="email" placeholder="Enter Email" style="font-family: 'Berkshire Swash', cursive;">
+    </div>
+          <div class="form-group">
+      <!--<label for="pwd">Password:</label>-->
+              <textarea class="form-control" name="message" placeholder="Enter Message" rows="4" style="font-family: 'Berkshire Swash', cursive;"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" name="go" style="font-family: 'Great Vibes', cursive;">Submit</button>
+  </form>
+</div>
+
+    </div>
+
+<!--FOOTER-->
+    <footer class="page-footer font-small blue pt-4 bg-dark navbar-dark" style="font-family: 'Cormorant Garamond', serif;">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase" style="color:#f1f1f1">CONTACT : 9137818209</h5>
+        <p  style="color:#f1f1f1">OR MAIL US AT : universecode24@gmail.com</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+           
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+      
+        <ul class="list-unstyled">
+         
+          <li>
+            <a href="#home" style="color:white">Back to top of page</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3"  style="color:#f1f1f1">© 2020 Copyright:
+    <a href="http://universecode.ml" style="color:red"> UNIVERSE CODE</a><br>Created by : Aditya Barve
+  </div>
+  <!-- Copyright -->
+
+</footer>
+ <script src="removeBanner.js"></script>
+ <script src="./script.js"></script>
+</body>
+</html>
