@@ -85,6 +85,7 @@ function myFunction() {
            <th>Update Status</th>
           
         </tr> 
+	<input type="hidden" value="" name="ids" id="ids" />
                  <?php
              
     
@@ -125,17 +126,17 @@ function myFunction() {
              <td><h5>".$querry33['ADDRESS']." </h5></td>
              <td><h5 style='overflow-y:hidden;'>".$querry33['STATUS']." </h5></td>
              <td>
-             <input type='radio' name='status_$i' value='CONFIRMED'> CONFIRMED <br>
-            <input type='radio' name='status_$i' value='PREPARING'> PREPARING <br>
-            <input type='radio' name='status_$i' value='DISPATCHED'> DISPATCHED <br>
-            <input type = 'submit' class = 'btn-primary' value = 'Submit' name = 'submit'>    
+             <input type='radio' name='status_$i' onclick="getRadioVaal($i)" value='CONFIRMED'> CONFIRMED <br>
+            <input type='radio' name='status_$i' onclick="getRadioVaal($i)" value='PREPARING'> PREPARING <br>
+            <input type='radio' name='status_$i' onclick="getRadioVaal($i)" value='DISPATCHED'> DISPATCHED <br>
+            <input type = 'submit' class = 'btn-primary' value = 'Submit' name = 'submit'>   
   </td> 
              
             
             </tr>
              ";
-       
         }
+	
         if (isset($_POST['submit'])){
             echo print_r($_POST);
 $status=$_POST['status'];
@@ -225,6 +226,16 @@ else{
 </footer>
 </body>
 <script src="removeBanner.js"></script>
+<script>
+function getRadioVaal(i){
+var value = document.getElementById(ids).value;
+if(value == ""){
+   value = value + i;
+} else {
+   value = value + "," + i;
+}
+}
+</script>
 </html>
 
 
