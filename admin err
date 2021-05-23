@@ -229,13 +229,13 @@ else{
 <script>
 function getRadioVaal(i){
 alert("I'm here with : "+i);
-var updatedValue = document.getElementById(ids).value;
+var updatedValue = document.getElementById('ids').value;
 if(updatedValue == ""){
    updatedValue = updatedValue + i;
 } else {
    updatedValue = updatedValue + "," + i;
 }
-document.getElementById(ids).value = updatedValue;
+document.getElementById('ids').value = updatedValue;
 }
 </script>
 </html>
