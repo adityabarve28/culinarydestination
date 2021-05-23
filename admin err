@@ -139,15 +139,18 @@ function myFunction() {
 	
         if (isset($_POST['submit'])){
             echo print_r($_POST);
-$status=$_POST['status'];
-//if($querry33['ID'] == $id){
-$select = mysqli_query($link,"SELECT * FROM orders WHERE ORDERNO = $orderno");
-$datainsert = "UPDATE orders SET STATUS = '$status' WHERE ORDERNO = '$orderno'";
-$execute = mysqli_query($link, $datainsert);
-if($execute){
-    echo "<h1>.$id.</h1>";
-echo "<script>alert('Order Status Updated')  
-</script>";
+	    if($_POST['ids']){
+	    	$ids = explode(",",$_POST['ids']);
+		$status=$_POST['status'];
+		//if($querry33['ID'] == $id){
+		$select = mysqli_query($link,"SELECT * FROM orders WHERE ORDERNO = $orderno");
+		$datainsert = "UPDATE orders SET STATUS = '$status' WHERE ORDERNO = '$orderno'";
+		$execute = mysqli_query($link, $datainsert);
+		if($execute){
+		    echo "<h1>.$id.</h1>";
+		echo "<script>alert('Order Status Updated')  
+		</script>";
+	    }
 }
 //}
 else{
