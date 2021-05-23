@@ -80,7 +80,7 @@ function myFunction() {
         
         <th>name</th>
         <th>Phone</th>
-          <th>address</th>
+          <th>Address</th>
           <th>Current Status</th>
            <th>Update Status</th>
           
@@ -137,6 +137,7 @@ function myFunction() {
        
         }
         if (isset($_POST['submit'])){
+            echo print_r($_POST);
 $status=$_POST['status'];
 //if($querry33['ID'] == $id){
 $select = mysqli_query($link,"SELECT * FROM orders WHERE ORDERNO = $orderno");
