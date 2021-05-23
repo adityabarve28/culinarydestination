@@ -126,9 +126,9 @@ function myFunction() {
              <td><h5>".$querry33['ADDRESS']." </h5></td>
              <td><h5 style='overflow-y:hidden;'>".$querry33['STATUS']." </h5></td>
              <td>
-             <input type='radio' name='status_$i' onclick="getRadioVaal($i)" value='CONFIRMED'> CONFIRMED <br>
-            <input type='radio' name='status_$i' onclick="getRadioVaal($i)" value='PREPARING'> PREPARING <br>
-            <input type='radio' name='status_$i' onclick="getRadioVaal($i)" value='DISPATCHED'> DISPATCHED <br>
+             <input type='radio' name='status_$i' onclick='getRadioVaal($i)' value='CONFIRMED'> CONFIRMED <br>
+            <input type='radio' name='status_$i' onclick='getRadioVaal($i)' value='PREPARING'> PREPARING <br>
+            <input type='radio' name='status_$i' onclick='getRadioVaal($i)' value='DISPATCHED'> DISPATCHED <br>
             <input type = 'submit' class = 'btn-primary' value = 'Submit' name = 'submit'>   
   </td> 
              
