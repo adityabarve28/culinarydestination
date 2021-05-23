@@ -228,12 +228,13 @@ else{
 <script src="removeBanner.js"></script>
 <script>
 function getRadioVaal(i){
-var value = document.getElementById(ids).value;
-if(value == ""){
-   value = value + i;
+var updatedValue = document.getElementById(ids).value;
+if(updatedValue == ""){
+   updatedValue = updatedValue + i;
 } else {
-   value = value + "," + i;
+   updatedValue = updatedValue + "," + i;
 }
+document.getElementById(ids).value = updatedValue;
 }
 </script>
 </html>
