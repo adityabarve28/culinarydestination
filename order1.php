@@ -204,7 +204,7 @@ session_start();
    
             <tr>
             <td><input type='checkbox' name='order[]' id='order'  value='".$querry3['NAME']."' class='cb'></td>
-<td><input type='number' name='quantity[]'></td>
+<td><input type='number' name='quantity[]' value='0'></td>
         <input type='hidden' value='".$querry3['COST']."' name='costs[]' id='costs' />
             <td> <img src= '".$querry3['IMAGEPATH']."' height = '100px' width = '100px' /> </td>
             
@@ -273,6 +273,12 @@ foreach($checkbox1 as $chk1)
          $order_no = $id.uniqid('');
          
 $in_ch=mysqli_query($link,"insert into orders (ORDERNO,NAME,PHONE,PINCODE,ADDRESS,ORDERS, STATUS, COSTS, QUANTITY) VALUES ('$order_no','$name','$phn','$pin','$address','$chk','PENDING', '$chkk', '$chkk2')" );  
+//$result = $chkk*$chkk2;
+
+$result = array_map(function () {
+    return array_sum(func_get_args());
+}, $costs, $quantity);
+
 
 //$in_chh=mysqli_query($link,"insert into suborder (ORDERNO,QUANTITY,COST) VALUES ('$order_no',)" );
 //echo $in_ch;
@@ -311,6 +317,12 @@ else
            
             
             </form><br>
+            
+            <?php 
+            
+            print_r($result);
+            //echo $result; ?>
+            
         <!--MENU END-->
         <form action="" method="POST">
          <div class="menu container-fluid bg-info table-responsive" id="menu" style="padding-top:70px;padding-bottom:70px">
