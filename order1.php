@@ -172,6 +172,7 @@ session_start();
    
       <tr>
           <th>Select</th>
+          <th>Quantity</th>
         <th>dish</th>
         
         <th>name</th>
@@ -202,8 +203,8 @@ session_start();
   
    
             <tr>
-            <td><input type='checkbox' name='order[]' value='".$querry3['NAME']."' class='cb'></td>
-
+            <td><input type='checkbox' name='order[]' id='order'  value='".$querry3['NAME']."' class='cb'></td>
+<td><input type='number' name='quantity[]'></td>
         <input type='hidden' value='".$querry3['COST']."' name='costs[]' id='costs' />
             <td> <img src= '".$querry3['IMAGEPATH']."' height = '100px' width = '100px' /> </td>
             
@@ -245,23 +246,24 @@ $phn= $_POST['phn'];
 $address= $_POST['address'];     
           $checkbox1=$_POST['order'];
           $costs = $_POST['costs'];
+$quantity = $_POST['quantity'];
 
-//$quantity = $_POST['quantity'];
-
-/*$chkk="";
-foreach($quantity as $chkk1){
-    $chkk .= $chkk1.",";
-    $chkk = $quantity;
+$chkk2="";
+foreach($quantity as $chkk0){
+    $chkk2 .= $chkk0." , ";
+   // $chkk2 = $quantity;
     
 }
-*/
-if($_POST['order'] == true){
+
+//if($_POST['order'] == true){
+   // if(isset($_POST['order'])){
+   // if(in_array($sbtitle, $_POST['order'])){
 $chkk = "";
 foreach($costs as $chkk1){
     $chkk .=$chkk1.",";
 }
-    
-}
+//}
+//}
 $chk="";  
 foreach($checkbox1 as $chk1)  
    {  
@@ -270,7 +272,7 @@ foreach($checkbox1 as $chk1)
 
          $order_no = $id.uniqid('');
          
-$in_ch=mysqli_query($link,"insert into orders (ORDERNO,NAME,PHONE,PINCODE,ADDRESS,ORDERS, STATUS, COSTS) VALUES ('$order_no','$name','$phn','$pin','$address','$chk','PENDING', '$chkk')" );  
+$in_ch=mysqli_query($link,"insert into orders (ORDERNO,NAME,PHONE,PINCODE,ADDRESS,ORDERS, STATUS, COSTS, QUANTITY) VALUES ('$order_no','$name','$phn','$pin','$address','$chk','PENDING', '$chkk', '$chkk2')" );  
 
 //$in_chh=mysqli_query($link,"insert into suborder (ORDERNO,QUANTITY,COST) VALUES ('$order_no',)" );
 //echo $in_ch;
@@ -443,5 +445,15 @@ else
 
 </footer>
     </body>
+    <script>
+        var check = getElementByID("order").checked = flase;
+        function assign(){
+        if(var check.checked = true){
+            var cost = getElementByID("costs");
+           var cost = <?php $content;?>
+        }
+        }
+
+    </script>
     <script src="removeBanner.js"></script>
 </html>
