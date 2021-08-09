@@ -5,7 +5,7 @@ error_reporting(0);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Fruit Cakes || SS Bakery</title>
+  <title>Fruit Cakes</title>
   <meta charset="utf-8">
   <meta name="og:image" content="http://theculinarydestination.000webhostapp.com/img/Untitled-1%20copy.jpg">
   <meta name ="title" content="The Culinary Destination">
@@ -162,63 +162,7 @@ nav {
     </div>
 </div>
     </div>
-     <!--FOOTER-->
-<footer class="page-footer font-small blue pt-4 bg-dark navbar-dark" style="font-family: 'Cormorant Garamond', serif;">
-
-  <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left">
-
-    <!-- Grid row -->
-    <div class="row">
-
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
-
-        <!-- Content -->
-        <h5 class="text-uppercase" style="color:#f1f1f1">CONTACT : </h5>
-        <p  style="color:#f1f1f1">OR MAIL US AT : @gmail.com</p>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none pb-3">
-
-      <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
-
-        <!-- Links -->
-           
-
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
-
-      
-        <ul class="list-unstyled">
-         
-          <li>
-            <a href="index.html" style="color:white">Back to 1st page</a>
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3"  style="color:#f1f1f1">© 2020 Copyright: SS Bakery
-    <br><a href="http://universecode.ml" style="color:red">Created by :Aditya Barve</a> 
-  </div>
-  <!-- Copyright -->
-
-</footer>
+   
 </body>
 <script src="removeBanner.js"></script>
 </html>
