@@ -20,18 +20,17 @@ if($_SERVER['REQUEST_METHOD']=="POST")
         {
     
             $count= count($_SESSION['cart']);
-            $_SESSION['cart'][$count]=array('item_name'=> $_POST['name'],'item_price'=> $_POST['price'],'item_quantity'=> 1);
-            echo "<script> 
+            $_SESSION['cart'][$count]=array('item_name'=> $_POST['name'],'item_price'=> $_POST['price'],'item_quantity'=> $_POST['quantity']);
+            echo "<script>
                     alert('Item Is Successfully Added');
                     window.location.href='cart.php';
                     </script>";
         }
-        
     }
     
       else
       {
-        $_SESSION['cart'][0]=array('item_name'=> $_POST['name'],'item_price'=> $_POST['price'],'item_quantity'=> 1);
+        $_SESSION['cart'][0]=array('item_name'=> $_POST['name'],'item_price'=> $_POST['price'],'item_quantity'=> $_POST['quantity']);
        
         echo "<script>
                 alert('Item Is Successfully Added');
@@ -60,5 +59,5 @@ if($_SERVER['REQUEST_METHOD']=="POST")
     }
 
 }
-print_r($_SESSION['cart']);
+
 ?>
