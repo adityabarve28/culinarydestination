@@ -33,6 +33,7 @@ session_start();
                             <th scope="col">Serial No.</th>
                             <th scope="col">Item Name</th>
                             <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -51,21 +52,13 @@ session_start();
                                     
                                  echo "
                                  <tr>
-                                 <form action='manage_cart.php' method='POST'>
                                  <td>".$i."</td>
                                  <td>".$value['item_name']."</td>
                                  <td>".$value['item_price']."</td>
-                                 <td><input type='text' name='item_quantity' class='text-center' placeholder='Enter Quantity'></td>
-                                 ";
-                                 
-                                $x = $value['item_quantity'] + $_POST['item_quantity'] - $value['item_quantity'] ;
-
-
-                                 echo "                          
-                                 
+                                 <td>".$value['item_quantity']."</td>
+                                 <form action='manage_cart1.php' method='POST'>
                                  <td><button name='remove_item' class='btn btn-outline-danger btn-sm'>Remove</button></td>
                                  <input type='hidden' name='item_name' value='".$value['item_name']."'>
-                                 <input type='hidden' name='item_quantity' value='".$value['item_quantity']."'>
                                  </form>
                                  </tr>
                                  "   ;
