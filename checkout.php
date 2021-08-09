@@ -35,6 +35,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                             <th scope="col">Serial No.</th>
                             <th scope="col">Item Name</th>
                             <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
                    
                         </tr>
                     </thead>
@@ -58,6 +59,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                                  <td>".$i."</td>
                                  <td>".$value['item_name']."</td>
                                  <td>".$value['item_price']."</td>
+                                 <td>".$value['item_quantity']."</td>
                           
                                  <form action='manage_cart.php' method='POST'>
                                  
@@ -90,7 +92,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                       <?php  foreach($_SESSION['cart'] as $key => $value)
                                 {
 ?>                        <input type="text" class="form-control mt-2 text-center" name="" value="<?php echo $value['item_name'], $value['item_price'];?>" disabled> 
-                            <input type="text" class="form-control mt-2 text-center" value="<?php echo $value['item_quantity']; ?>" disabled>
+                            
                                 <?php } ?>
                         
                         <input type="text" class="form-control mt-2 text-center" placeholder="Enter Mobile Number: " name="mobno">
@@ -107,7 +109,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
 <?php
 
-if (isset($_POST['checkout']) && isset($_POST['quantity']) && isset($_POST['mobno']) && isset($_POST['address'])) 
+if (isset($_POST['checkout']) && isset($_POST['mobno']) && isset($_POST['address'])) 
 {
     $uid = uniqid();
     echo $uid;
@@ -117,12 +119,7 @@ if (isset($_POST['checkout']) && isset($_POST['quantity']) && isset($_POST['mobn
     foreach($_SESSION['cart'] as $key => $value)
                                 {
                                    
-                                  
-                                    foreach ($a as $keyy => $valuee) {
-                                        //    $qu = $valuee['quantity_i'];
-                                            $qu = implode(',',$valuee['quantity_i']);
-                                            echo $qu;
-                                        }
+                                    $qu = $value['item_quantity'];
                                     $pr = $value['item_price'];
                                  $in = $value['item_name'];
                                  $i = 0;
@@ -134,15 +131,12 @@ if (isset($_POST['checkout']) && isset($_POST['quantity']) && isset($_POST['mobn
                                     
                                     while($querry3 = mysqli_fetch_assoc($querry2)){
                                         $i++;
-                                       $quantityy = $querry3['QUANTITY'];
-                                    
+                                       $quantityy = $querry3['QUANTITY'] - $qu;
+                                        
                                     }
-                                   
-
-                                    // $quantity1 = $querry3['QUANTITY'] - $a;
-                                    // $quryy = "UPDATE menu SET QUANTITY = '$quantity1' WHERE NAME = '$in'";
-                                    // $exee = mysqli_query($link, $quryy);
-                                    $a[0] = array('quantity_i' => $_POST['quantity']);
+                                    $quryy = "UPDATE menu SET QUANTITY = '$quantityy' WHERE NAME = '$in'";
+                                    $exee = mysqli_query($link, $quryy);
+                                    //$a[0] = array('quantity_i' => $_POST['quantity']);
                                   
                                 $qury = "INSERT INTO orders (USERNAME,UID, ORDERS, PRICE, QUANTITY, MNO, ADDRESS) VALUES ('$name','$uid', '$in', '$pr', '$qu', '$mobno', '$address')";
                                 
