@@ -17,7 +17,7 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
+   <!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">-->
     
     
     
@@ -40,6 +40,43 @@ session_start();
 <meta name="theme-color" content="#ffffff">
     
   <style>
+  /*NAV BAR*/
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 30%;
+	background-color: #666666;
+	padding: 10px 10px 10px 10px;
+}
+
+.img{
+	padding: 10px 10px;
+	transition: width 2s, height 2s, transform 2s;
+}
+.img:hover {
+  width: 300px;
+  height: 300px;
+  transform: rotate(360deg);
+}
+.navtxt{
+	text-decoration: none;
+	color: white;
+	padding: 10px 10px;
+	/*size: 30px;*/
+	font-family: 'Yusei Magic', sans-serif;
+    font-size: 18px;
+}
+
+.navtxt:hover{
+	color: cyan;
+	font-family: 'Hachi Maru Pop', cursive;
+}
+
+.icons{
+	padding-right: 5px;
+}
   body {
       position: relative; 
   }
@@ -98,63 +135,21 @@ session_start();
     <body>
           
         <!--NAV-->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav" > 
-    <a class="navbar-brand" href="#myModal"> <p style="font-family:cursive" data-toggle="modal" data-target="#myModal">The Culinary Destination</p> </a>
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
+       	<!-- NAV BAR -->
+<nav class="nav">
+	
+	<a href="index.html#home" class="navtxt"><span class="icons fa fa-home"></span>Home</a>
+	<a href="index.html#menu" class="navtxt"><span class="icons fa fa-cutlery"></span>Menu</a>
+	<a href="index.html#feedback" class="navtxt"><span class="icons fa fa-star"></span>Feedback</a>
+    <a class="navtxt " href="order.php"><i class="icons fa fa-shopping-cart" aria-hidden="true"></i>Order Now</a>
+    <a class="navtxt " href="php/cfsub.php"><i class="icons fa fa-comments-o" aria-hidden="true"></i>Customer's Review's</a>
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">The Culinary Destination</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-         <img src="img/Untitled-1%20copy.jpg" class="img-thumbnail" >
-      </div>
-
-      <!-- Modal footer -->
-      
-
-    </div>
-  </div>
-</div>
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="index.html">Home</a>
-    </li>
-    <li class="nav-item">
-<a class="nav-link" href="index.html#menu">Menu</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="index.html#special">Today's Special</a>
-    </li>
-      
-    <li class="nav-item ">
-      <a class="nav-link" href="index.html#feedback">Feedback</a>
-       <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        More
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="about.php">About</a>
-        <a class="dropdown-item" href="cfsub.php">Customer's Review's</a>
-      
-      <a class="dropdown-item" href="#vieworder">View Your Order</a>
-   
-      </div>
-    
-    </li>
-  </ul>
 </nav>
         
         <div class="alert alert-warning">
     <strong>Note!</strong> This Page and Billing System Is Under Development.
   </div> 
-  <h2>Tip - </h2><h4>Place Your Order, Search Your Order Using Order No And Then Directly Send Your Order To Whats App By Clicking on Link And Also Copy Your Order No TO Search For Order</h4>
+  <h2 style="overflow-y:hidden;">Tip - </h2><h4 style="overflow-y:hidden;">Place Your Order, Search Your Order Using Order No And Then Directly Send Your Order To Whats App By Clicking on Link And Also Copy Your Order No TO Search For Order</h4>
         
         
         
@@ -172,6 +167,7 @@ session_start();
    
       <tr>
           <th>Select</th>
+          <th>Quantity</th>
         <th>dish</th>
         
         <th>name</th>
@@ -202,9 +198,18 @@ session_start();
   
    
             <tr>
-            <td><input type='checkbox' name='order[]' value='".$querry3['NAME']."' class='cb'></td>
-
-
+            <td><input type='checkbox' name='order[]'  id='order'  value='".$querry3['NAME']."' class='cb'></td>
+<td>
+<select id='quantity' name='quantity[]' required>
+    <option value='0' selected>0</option>
+    <option value='1'>1</option>
+    <option value='2'>2</option>
+    <option value='3'>3 </option>
+    <option value='4'>4 </option>
+    <option value='5'>5 </option>
+  </select>
+</td>
+        <input type='hidden' value='".$querry3['COST']."' name='costs[]' id='costs' />
             <td> <img src= '".$querry3['IMAGEPATH']."' height = '100px' width = '100px' /> </td>
             
 
@@ -232,7 +237,8 @@ session_start();
        <input type="text" class="phn form-control" name="phn" placeholder="Enter Phone No" required>
        <input type="text" class="phn form-control" name="pin" placeholder="Enter Pin Code" required>
        <textarea name="address" placeholder="Enter Adderss" class="add form-control" cols="10" required></textarea>
-       <!--<a href='https://api.whatsapp.com/send?phone=919137818209&text=$title $sbtitle $content $contentt $orderno'>--><button type="submit" class="btn btn-primary" name="go">Order</button></a> 
+       <!--<a href='https://api.whatsapp.com/send?phone=919137818209&text=$title $sbtitle $content $contentt $orderno'>-->
+       <button type="submit" onclick='return GetSelected()' class="btn btn-primary"  name="go">Order</button></a> 
           </div>
     </div>
         <?php  
@@ -244,28 +250,62 @@ session_start();
 $phn= $_POST['phn'];
 $address= $_POST['address'];     
           $checkbox1=$_POST['order'];
-          
-
+          $costs = $_POST['costs'];
 $quantity = $_POST['quantity'];
 
-/*$chkk="";
-foreach($quantity as $chkk1){
-    $chkk .= $chkk1.",";
-    $chkk = $quantity;
+$chkk2="";
+foreach($quantity as $chkk0){
+    $chkk2 .= $chkk0." , ";
+   // $chkk2 = $quantity;
     
 }
-*/
-  
+
+//if($_POST['order'] == true){
+   // if(isset($_POST['order'])){
+   // if(in_array($sbtitle, $_POST['order'])){
+$chkk = "";
+foreach($costs as $chkk1){
+    $chkk .=$chkk1.",";
+}
+//}
+//}
 $chk="";  
 foreach($checkbox1 as $chk1)  
    {  
       $chk .= $chk1.",";  
    } 
+for($i=0; $i < sizeof($costs); $i++){
+    $result[$i] = $costs[$i] * $quantity[$i];
+    //print_r($result);
+ $total  = array_sum($result);
+}
 
-         $order_no = $name.uniqid('_');
+/*..............................................................*/
+ /*if(isset($_POST['order'])>0){
+for($j=0; $j < sizeof($checkbox1); $j++){
+    $resulttoorder[$j] = $chkk2[$j] + "1";;*/
+    //print_r($result);
+ //$total  = array_sum($result);
+//}
+//}
+/*.......................................................................*/
+
+
+         $order_no = $id.uniqid('');
          
-$in_ch=mysqli_query($link,"insert into orders (ORDERNO,NAME,PHONE,PINCODE,ADDRESS,ORDERS) VALUES ('$order_no','$name','$phn','$pin','$address','$chk')" );  
+$in_ch=mysqli_query($link,"insert into orders (ORDERNO,NAME,PHONE,PINCODE,ADDRESS,ORDERS, STATUS, COSTS, QUANTITY, TOTAL) VALUES ('$order_no','$name','$phn','$pin','$address','$chk','PENDING', '$chkk', '$chkk2', '$total')" );  
+//$result = $chkk*$chkk2;
 
+/*********************************************************************************************************/
+/**************************MULTIPLYING COSTS AND QUANTIY USING MATRIX*************************************/
+
+
+
+
+
+
+
+/************************************************************************************************************/
 //$in_chh=mysqli_query($link,"insert into suborder (ORDERNO,QUANTITY,COST) VALUES ('$order_no',)" );
 //echo $in_ch;
 
@@ -303,6 +343,13 @@ else
            
             
             </form><br>
+            
+            <?php 
+            
+           // print_r($result);
+            //echo array_sum($result);
+            //echo $result; ?>
+            
         <!--MENU END-->
         <form action="" method="POST">
          <div class="menu container-fluid bg-info table-responsive" id="menu" style="padding-top:70px;padding-bottom:70px">
@@ -319,7 +366,9 @@ else
         
         <th>name</th>
         <th>Phone</th>
+        <th>Total Amt</th>
           <th>address</th>
+          <th>Status</th>
           <th>Direct Order On What's App</th>
         </tr> 
                  <?php
@@ -335,11 +384,12 @@ else
             
             $id = $querry33['ID'];
             $orderno= $querry33['ORDERNO'];
-            /*$quantity= $querry33['QUANTITY'];*/
+            $status= $querry33['STATUS'];
             $title = $querry33['ORDERS'];
             $sbtitle = $querry33['NAME'];
             $content = $querry33['PHONE'];
             $contentt = $querry33['ADDRESS'];
+            $total = $querry33['TOTAL'];
 ?>   
     
         
@@ -353,12 +403,14 @@ else
   
    
             <tr>
-            <td> <h5>".$querry33['ORDERNO']."</h5> </td>
-            <td> <h5>".$querry33['ORDERS']."</h5> </td>
+            <td> <h5 style='overflow-y:hidden;'>".$querry33['ORDERNO']."</h5> </td>
+            <td> <h5 style='overflow-y:hidden;'>".$querry33['ORDERS']."</h5> </td>
             
-            <td><h5>".$querry33['NAME']."</h5></td>
-            <td><h5>".$querry33['PHONE']." </h5></td>
-             <td><h5>".$querry33['ADDRESS']." </h5></td>
+            <td><h5 style='overflow-y:hidden;'>".$querry33['NAME']."</h5></td>
+            <td><h5 style='overflow-y:hidden;'>".$querry33['PHONE']." </h5></td>
+            <td><h5 style='overflow-y:hidden;'>".$querry33['TOTAL']." </h5></td>
+             <td><h5 style='overflow-y:hidden;'>".$querry33['ADDRESS']." </h5></td>
+             <td><h5 style='overflow-y:hidden;'>".$querry33['STATUS']." </h5></td>
              <td> <a href='https://api.whatsapp.com/send?phone=919137818209&text=$title $sbtitle $content $contentt $orderno'>Send This Order On What's App
             </a></td>
             
@@ -435,5 +487,44 @@ else
 
 </footer>
     </body>
+    <script>
+        /*var check = getElementByID("order").checked = flase;
+        function assign(){
+        if(var check.checked = true){
+            var cost = getElementByID("costs");
+           var cost = <?php $content;?>
+        }
+        }*/
+
+    </script>
     <script src="removeBanner.js"></script>
+    
+<script type="text/javascript">
+    function GetSelected() {
+        //Create an Array.
+        var selected = new Array();
+ 
+        //Reference the Table.
+        //var tblFruits = document.getElementById("tblFruits");
+ 
+        //Reference all the CheckBoxes in Table.
+        var chks = document.getElementById("order");
+ 
+        // Loop and push the checked CheckBox value in Array.
+        for (var i = 0; i < chks.length; i++) {
+            if (chks[i].checked) {
+                selected.push(chks[i].value);
+            }
+        }
+ 
+        //Display the selected CheckBox values.
+        if (selected.length > 0) {
+            alert("Selected values: " + selected.join(","));
+            document.write(selected + "Value")
+        }
+    };
+</script>
+    
+    
+    
 </html>

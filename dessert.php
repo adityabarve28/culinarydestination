@@ -62,43 +62,59 @@
 .menu{
       background-image: linear-gradient(198deg, #336699, #e6ccff);
 }
+
+
+/*NAV BAR*/
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 30%;
+	background-color: #666666;
+	padding: 10px 10px 10px 10px;
+}
+
+.img{
+	padding: 10px 10px;
+	transition: width 2s, height 2s, transform 2s;
+}
+.img:hover {
+  width: 300px;
+  height: 300px;
+  transform: rotate(360deg);
+}
+.navtxt{
+	text-decoration: none;
+	color: white;
+	padding: 10px 10px;
+	/*size: 30px;*/
+	font-family: 'Yusei Magic', sans-serif;
+    font-size: 18px;
+}
+
+.navtxt:hover{
+	color: cyan;
+	font-family: 'Hachi Maru Pop', cursive;
+}
+
+.icons{
+	padding-right: 5px;
+}
   </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-<!-- NAVBAR NORMAL -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark nav" > 
-    <a class="navbar-brand text" href="#myModal"> <p style="font-family:cursive" data-toggle="modal" data-target="#myModal">The Culinary Destination</p> </a>
-<!-- The Modal -->
 
-  <ul class="navbar-nav nav-text"style="font-family: 'Roboto', sans-serif;">
-    <li class="nav-item">
-      <a class="nav-link" href="http://theculinarydestination.000webhostapp.com/index.html#home">Home</a>
-    </li>
-    <li class="nav-item">
-<a class="nav-link" href="http://theculinarydestination.000webhostapp.com/index.html#menu">Menu</a>
-    </li>
+<nav class="nav">
+	
+	<a href="index.html#home" class="navtxt"><span class="icons fa fa-home"></span>Home</a>
+	<a href="index.html#menu" class="navtxt"><span class="icons fa fa-cutlery"></span>Menu</a>
+	<a href="index.html#feedback" class="navtxt"><span class="icons fa fa-star"></span>Feedback</a>
+    <a class="navtxt " href="order.php"><i class="icons fa fa-shopping-cart" aria-hidden="true"></i>Order Now</a>
+    <a class="navtxt " href="php/cfsub.php"><i class="icons fa fa-comments-o" aria-hidden="true"></i>Customer's Review's</a>
 
-      
-    <li class="nav-item ">
-      <a class="nav-link" href="http://theculinarydestination.000webhostapp.com/index.html#feedback">Feedback</a>
-       <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        More
-      </a>
-      <div class="dropdown-menu bg-dark">
-           <a class="dropdown-item "style="color:white !important;" href="order.php">Order Now</a>
-    
-        <a class="dropdown-item "style="color:white !important;" href="cfsub.php">Customer's Review's</a>
-      
-      <!--<a class="dropdown-item" href="order.php">Order Now</a>
-   -->
-      </div>
-    
-    </li>
-  </ul>
 </nav>
-
 
 
 <div class="menu container-fluid" id="menu" style="padding-top:70px;padding-bottom:70px">

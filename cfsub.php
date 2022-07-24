@@ -27,9 +27,58 @@ if(isset($_GET['id'])){
     <!--LINKING EXTERNAL STYLE SHEET-->
     <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
         </head>
+        <style>
+                   /*NAV BAR*/
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 30%;
+	background-color: #666666;
+	padding: 10px 10px 10px 10px;
+}
+
+.img{
+	padding: 10px 10px;
+	transition: width 2s, height 2s, transform 2s;
+}
+.img:hover {
+  width: 300px;
+  height: 300px;
+  transform: rotate(360deg);
+}
+.navtxt{
+	text-decoration: none;
+	color: white;
+	padding: 10px 10px;
+	/*size: 30px;*/
+	font-family: 'Yusei Magic', sans-serif;
+    font-size: 18px;
+}
+
+.navtxt:hover{
+	color: cyan;
+	font-family: 'Hachi Maru Pop', cursive;
+}
+
+.icons{
+	padding-right: 5px;
+}
+        </style>
     <body>
+ 
+<nav class="nav">
+	
+	<a href="index.html#home" class="navtxt"><span class="icons fa fa-home"></span>Home</a>
+	<a href="index.html#menu" class="navtxt"><span class="icons fa fa-cutlery"></span>Menu</a>
+	<a href="index.html#feedback" class="navtxt"><span class="icons fa fa-star"></span>Feedback</a>
+    <a class="navtxt " href="order.php"><i class="icons fa fa-shopping-cart" aria-hidden="true"></i>Order Now</a>
+    <a class="navtxt " href="php/cfsub.php"><i class="icons fa fa-comments-o" aria-hidden="true"></i>Customer's Review's</a>
+
+</nav>
       <div class="container">
-<h1>
+<h1 style="overflow:hidden;">
     FEEDBACKS
     </h1>
     <table border="2px" class="table table-dark table-hover">
@@ -129,5 +178,7 @@ if(isset($_GET['id'])){
   <!-- Copyright -->
 
 </footer>
+<script src="removeBanner.js"></script>
+
     </body>
 </html>
